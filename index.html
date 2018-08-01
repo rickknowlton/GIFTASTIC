@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>[adult swim] GIFTASTIC</title>
+
+    <!--== Favicon ==-->
+    <link rel="icon" href="./assets/img/favicon.png" type="image/x-icon" />
+
+    <!--== CSS Files ==-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono|Rubik:500">
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+</head>
+
+<body>
+    
+    <!--== Navbar ==-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
+        <a class="navbar-brand" href="#">
+            <img src="./assets/img/logo.png" class="logo d-inline-block align-text-bottom mt-2 mr-1" alt="">
+            <span id="navHome">GIFTASTIC</span>
+        </a>
+        
+        <!--== Search ==-->
+        <form class="form-inline">
+            <input id="add" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button id="addBtn" class="btn btn-light my-2 my-sm-0" type="submit">Add</button>
+        </form>
+    </nav>
+    
+    <!--== Buttons ==-->
+    <nav class="navbar navbar-light bg-light">
+        <div id="buttons"></div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="content-wrapper col-md-12">
+
+                <!--== Portal ==-->
+                <div class="portal col-md-12">
+                    <img id="portal" class="center img-responsive" src="https://media.giphy.com/media/3o7aD2d7hy9ktXNDP2/giphy.gif">
+                </div>
+                
+                <!--== Gif Gallery ==-->
+                <div id="gifs">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <!--== Javascript/jQuery Files ==-->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+    <script src="./assets/js/app.js"></script>

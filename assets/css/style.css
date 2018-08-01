@@ -1,0 +1,121 @@
+/*   Body/Default Attributes   */
+
+body {
+    font-family: 'Roboto Mono', monospace;
+    background: linear-gradient(270deg, #1ae5b1, #42e1ef, #768dfe, #b976fe, #fe76b3);
+    background-size: 1000% 1000%;
+    -webkit-animation: AnimationName 43s ease infinite;
+    -moz-animation: AnimationName 43s ease infinite;
+    -o-animation: AnimationName 43s ease infinite;
+    animation: AnimationName 43s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@-moz-keyframes AnimationName {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@-o-keyframes AnimationName {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@keyframes AnimationName {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+/*   Element Attributes   */
+
+img {
+    border: 1px solid black;
+    box-shadow: 2px 2px 5px black;
+    width: 100%;
+    height: 100%;
+}
+
+/*   Class Attributes   */
+
+.content-wrapper {
+    margin: 0 auto;
+    display: flex;
+}
+
+.gifBtn {
+    margin-right: 5px;
+}
+
+.item {
+    display: inline-block;
+    padding: 5px;
+    width: 250px;
+    height: 200px;
+}
+
+img.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.rating {
+    background-color: rgba(0, 0, 0, 0.80);
+    color: white;
+    border: 1px solid black;
+    box-shadow: 2px 2px 5px black;
+}
+
+.logo {
+    width: 128px;
+    height: 24px;
+    border: none;
+    box-shadow: none;
+}
+
+/*   ID Attributes   */
+
+#gifs {
+    padding-top: 25px;
+}
+
+#navHome {
+    font-family: 'Rubik', sans-serif;
+}
+
+#portal {
+    border: none;
+    box-shadow: none;
+}
