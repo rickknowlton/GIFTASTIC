@@ -56,7 +56,7 @@ $(document).ready(async function () {
 
   $("#buttons").on("click", ".gifBtn", async function () {
     const gif = $(this).attr("dataGif");
-    const queryURL = `https://api.giphy.com/v1/gifs/search?q=${gif}&api_key=dc6zaTOxFJmzC&limit=12`;
+    const queryURL = `https://api.giphy.com/v1/gifs/search?q=${gif}&api_key=GdVXrXJi0C0kD1P4HZmjisymSlS7HPyw&limit=12`;
 
     const response = await $.ajax({
       url: queryURL,
