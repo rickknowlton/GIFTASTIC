@@ -54,34 +54,41 @@ $(document).ready(async function () {
   // our image gallery.                       //
   //------------------------------------------//
 
-  $("#buttons").on("click", ".gifBtn", async function () {
-    const gif = $(this).attr("dataGif");
-    const queryURL = `https://api.giphy.com/v1/gifs/search?q=${gif}&api_key=GdVXrXJi0C0kD1P4HZmjisymSlS7HPyw&limit=12`;
+  $("#buttons").on("click", ".gifBtn", function () {
+    var gif = $(this).attr("dataGif");
+    var queryURL =
+      "https://api.giphy.com/v1/gifs/search?q=" +
+      gif +
+      "&api_key=GdVXrXJi0C0kD1P4HZmjisymSlS7HPyw&limit=12";
 
-    const response = await $.ajax({
+    $.ajax({
       url: queryURL,
       method: "GET",
+    }).done(function (response) {
+      var results = response.data;
+      $("#gifs").empty();
+
+      for (var i = 0; i < results.length; i++) {
+        var gifDiv = $("<div class='item col-md-4 col-lg-4'>");
+        var gifImg = $("<img>");
+        var p = $("<p class='rating'>").text("rated: " + results[i].rating);
+
+        var dataState = gifImg.attr("data-state", "still");
+        var dataStill = gifImg.attr(
+          "data-still",
+          results[i].images.fixed_height_still.url
+        );
+        var dataAnimate = gifImg.attr(
+          "data-animate",
+          results[i].images.fixed_height.url
+        );
+
+        gifImg.attr("src", results[i].images.fixed_height_still.url);
+        gifDiv.prepend(p);
+        gifDiv.prepend(gifImg);
+        $("#gifs").prepend(gifDiv);
+      }
     });
-
-    const results = response.data;
-    $("#gifs").empty();
-
-    for (let i = 0; i < results.length; i++) {
-      const gifDiv = $("<div class='item col-md-4 col-lg-4'>");
-      const gifImg = $("<img>");
-      const p = $("<p class='rating'>").text(`rated: ${results[i].rating}`);
-
-      gifImg.attr({
-        src: results[i].images.fixed_height_still.url,
-        "data-state": "still",
-        "data-still": results[i].images.fixed_height_still.url,
-        "data-animate": results[i].images.fixed_height.url,
-      });
-
-      gifDiv.prepend(p);
-      gifDiv.prepend(gifImg);
-      $("#gifs").prepend(gifDiv);
-    }
 
     $(".portal").hide();
   });
@@ -97,9 +104,9 @@ $(document).ready(async function () {
   //------------------------------------------//
 
   $("#gifs").on("click", ".item img", function () {
-    const state = $(this).attr("data-state");
-    const move = $(this).attr("data-animate");
-    const still = $(this).attr("data-still");
+    var state = $(this).attr("data-state");
+    var move = $(this).attr("data-animate");
+    var still = $(this).attr("data-still");
 
     if (state === "still") {
       $(this).attr("src", move);
