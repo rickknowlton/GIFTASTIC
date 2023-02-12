@@ -1,60 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>[adult swim] GIFTASTIC</title>
 
     <!--== Favicon ==-->
-    <link rel="icon" href="./assets/img/favicon.png" type="image/x-icon" />
+    <link rel="icon" href="./img/favicon.png" type="image/x-icon" />
 
     <!--== CSS Files ==-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono|Rubik:500">
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css"
+      integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+      integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Exo+2:wght@800&family=Rubik:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
 
-</head>
-
-<body>
-    
+  <body>
     <!--== Navbar ==-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
+    <nav
+      class="navbar navbar-expand-lg bg-body-tertiary navbar-dark bg-dark justify-content-between"
+    >
+      <div class="container-fluid">
         <a class="navbar-brand" href="#">
-            <img src="./assets/img/logo.png" class="logo d-inline-block align-text-bottom mt-2 mr-1" alt="">
-            <span id="navHome">GIFTASTIC</span>
+          <img
+            src="./img/logo.png"
+            class="logo d-inline-block align-text-bottom mt-2 mr-1"
+            alt=""
+          />
+          <span id="navHome">GIFTASTIC</span>
         </a>
-        
+
         <!--== Search ==-->
-        <form class="form-inline">
-            <input id="add" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button id="addBtn" class="btn btn-light my-2 my-sm-0" type="submit">Add</button>
+        <form class="d-flex form-inline" role="search">
+          <input
+            id="add"
+            class="form-control me-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <button
+            id="addBtn"
+            class="btn btn-outline-info my-2 my-sm-0"
+            type="submit"
+          >
+            Add
+          </button>
         </form>
+      </div>
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="gif-modal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="modal-label"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header container">
+              <h5 class="modal-title"></h5>
+              <div
+                type="button"
+                class="close text-danger"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+              <i id="modal-close" class="bi bi-x-square"></i>
+            </div>
+            </div>
+            <div class="modal-body"></div>
+
+            <div class="modal-button-group mb-5">
+              <div class="container">
+                <div class="row g-2">
+                  <div class="input-group mb-3">
+                    <input
+                      type="text"
+                      id="copy-link-field"
+                      class="form-control"
+                      value=""
+                      aria-label="copy-link"
+                      aria-describedby="copy-link-button"
+                    />
+                    <button
+                      class="btn btn-outline-primary"
+                      style="width: 27.5%"
+                      type="button"
+                      id="copy-link-button"
+                      data-bs-toggle="popover"
+                      data-bs-trigger="focus"
+                      data-bs-placement="top"
+                      data-bs-content="GIF Link Copied!"
+                    >
+                      Copy Link
+                    </button>
+                  </div>
+                  <div class="input-group mb-3">
+                    <input
+                      type="text"
+                      id="copy-embed-field"
+                      class="form-control"
+                      value=""
+                      aria-label="copy-embed"
+                      aria-describedby="copy-embed-button"
+                    />
+                    <button
+                      class="btn btn-outline-primary"
+                      style="width: 27.5%"
+                      type="button"
+                      id="copy-embed-button"
+                      data-bs-toggle="popover"
+                      data-bs-trigger="focus"
+                      data-bs-placement="top"
+                      data-bs-content="Embed Code Copied!"
+                    >
+                      Copy Embed
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-outline-danger close"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </nav>
-    
+
     <!--== Buttons ==-->
     <nav class="navbar navbar-light bg-light">
-        <div id="buttons"></div>
+      <div class="container-fluid">
+        <div class="buttons" id="buttons"></div>
+      </div>
     </nav>
 
-    <div class="container">
-        <div class="row">
-            <div class="content-wrapper col-md-12">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="content-wrapper col-10">
+          <!--== Portal ==-->
+          <div class="portal col-12">
+            <img
+              id="portal"
+              class="center img-responsive"
+              src="https://media.giphy.com/media/3o7aD2d7hy9ktXNDP2/giphy.gif"
+            />
+          </div>
 
-                <!--== Portal ==-->
-                <div class="portal col-md-12">
-                    <img id="portal" class="center img-responsive" src="https://media.giphy.com/media/3o7aD2d7hy9ktXNDP2/giphy.gif">
-                </div>
-                
-                <!--== Gif Gallery ==-->
-                <div id="gifs">
-                </div>
-            </div>
+          <!--== Gif Gallery ==-->
+          <div id="gifs" class="row g-6"></div>
+
+          <!--== Load More ==-->
         </div>
+      </div>
     </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="w-25 mx-auto buttons loading">
+          <button id="loadMore" class="mx-auto my-5 col-12 gifBtn loadMore">
+            LOAD MORE
+          </button>
+        </div>
+      </div>
+    </div>
+    <!--== Scroll Up ==-->
 
-    
+    <button
+      id="topBtn"
+      style="display: none; position: fixed; bottom: 20px; right: 20px"
+    >
+    <i class="bi bi-caret-up-fill"></i>
+</button>
+
     <!--== Javascript/jQuery Files ==-->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
-    <script src="./assets/js/app.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.3.js"
+      integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"
+      integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="./js/config.js"></script>
+    <script src="./js/app.js"></script>
+  </body>
+</html>
